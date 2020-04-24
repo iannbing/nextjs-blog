@@ -1,4 +1,69 @@
-import Head from 'next/head'
+import Head from "next/head";
+import TreeMenu from "react-simple-tree-menu";
+
+const dataInArray = [
+  {
+    key: "mammal",
+    label: "Mammal",
+    url: "https://www.google.com/search?q=mammal",
+    nodes: [
+      {
+        key: "canidae",
+        label: "Canidae",
+        url: "https://www.google.com/search?q=canidae",
+        nodes: [
+          {
+            key: "dog",
+            label: "Dog",
+            url: "https://www.google.com/search?q=dog",
+            nodes: [],
+          },
+          {
+            key: "fox",
+            label: "Fox",
+            url: "https://www.google.com/search?q=fox",
+            nodes: [],
+          },
+          {
+            key: "wolf",
+            label: "Wolf",
+            url: "https://www.google.com/search?q=wolf",
+            nodes: [],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    key: "reptile",
+    label: "Reptile",
+    url: "https://www.google.com/search?q=reptile",
+    nodes: [
+      {
+        key: "squamata",
+        label: "Squamata",
+        url: "https://www.google.com/search?q=squamata",
+        nodes: [
+          {
+            key: "lizard",
+            label: "Lizard",
+            url: "https://www.google.com/search?q=lizard",
+          },
+          {
+            key: "snake",
+            label: "Snake",
+            url: "https://www.google.com/search?q=snake",
+          },
+          {
+            key: "gekko",
+            label: "Gekko",
+            url: "https://www.google.com/search?q=gekko",
+          },
+        ],
+      },
+    ],
+  },
+];
 
 export default function Home() {
   return (
@@ -16,6 +81,10 @@ export default function Home() {
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
+
+        <div className="tree-menu">
+          <TreeMenu data={dataInArray} />
+        </div>
 
         <div className="grid">
           <a href="https://nextjs.org/docs" className="card">
@@ -54,12 +123,16 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
         </a>
       </footer>
 
       <style jsx>{`
+        .tree-menu {
+          width: 400px;
+          border: 1px solid gray;
+        }
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -205,5 +278,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
